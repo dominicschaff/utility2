@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Utility</string>
+    <string name="shortcut_map">Maps</string>
+    <string name="shortcut_download">Download</string>
+    <string name="shortcut_config">Config Editor</string>
+    <string name="shortcut_scanner">Scanner</string>
+
+
+    <string-array name="map_actions">
+        <item>Share This Location</item>
+        <item>Straight Distance</item>
+        <item>Draw Circle Here</item>
+    </string-array>
+    <string-array name="urls">
+        <item>http://download.mapsforge.org/maps/world/world.map</item>
+        <item>http://download.mapsforge.org/maps/v5/africa/south-africa-and-lesotho.map</item>
+        <item>http://download.mapsforge.org/maps/v5/europe/iceland.map</item>
+    </string-array>
+</resources>
