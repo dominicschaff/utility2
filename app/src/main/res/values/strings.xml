@@ -4,6 +4,9 @@
     <string name="shortcut_download">Download</string>
     <string name="shortcut_config">Config Editor</string>
     <string name="shortcut_scanner">Scanner</string>
+    <string name="shortcut_disabled">Disabled</string>
+    <string name="shortcut_loyalty">Loyalty Cards</string>
+    <string name="shortcut_stats">Stats Entry</string>
 
 
     <string-array name="map_actions">

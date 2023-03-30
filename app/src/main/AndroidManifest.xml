@@ -17,6 +17,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Utility">
         <activity
+            android:name=".stats.GenericActivity"
+            android:label="Generic Stats"
+            android:exported="false" />
+        <activity
+            android:name=".stats.FuelActivity"
+            android:label="Fuel Stats"
+            android:exported="false" />
+        <activity
+            android:name=".stats.ElectricityActivity"
+            android:label="Electricity Stats"
+            android:exported="false" />
+        <activity
+            android:name=".stats.ExpenseActivity"
+            android:label="Expense Stats"
+            android:exported="false" />
+        <activity
+            android:name=".stats.StatsSelectionActivity"
+            android:label="Stats Type Selection"
+            android:exported="false" />
+        <activity
+            android:name=".LoyaltyActivity"
+            android:exported="false"
+            android:label="@string/shortcut_loyalty" />
+        <activity
             android:name=".TextReceiveActivity"
             android:exported="true"
             android:theme="@android:style/Theme.NoDisplay">
@@ -30,16 +54,16 @@
         </activity>
         <activity
             android:name=".ScannerActivity"
-            android:label="@string/shortcut_scanner"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/shortcut_scanner" />
         <activity
             android:name=".NotesActivity"
-            android:label="@string/shortcut_config"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/shortcut_config" />
         <activity
             android:name=".DownloadActivity"
-            android:label="@string/shortcut_download"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/shortcut_download" />
         <activity
             android:name=".MapActivity"
             android:exported="false"
@@ -53,6 +77,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
         </activity>
     </application>
 

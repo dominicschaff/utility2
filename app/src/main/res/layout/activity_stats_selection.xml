@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/OuterPadding"
+    tools:context=".stats.StatsSelectionActivity">
+
+    <Button
+        android:id="@+id/fuel"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:text="Fuel"
+        android:textSize="42sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/expense"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:text="Expense"
+        android:textSize="42sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fuel" />
+
+    <Button
+        android:id="@+id/electricity"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:text="Electricity"
+        android:textSize="42sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/expense" />
+
+    <Button
+        android:id="@+id/generic"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:text="Generic"
+        android:textSize="42sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/electricity" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

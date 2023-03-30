@@ -5,6 +5,7 @@ import android.os.Bundle
 import dev.schaff.utility.databinding.ActivityMainBinding
 import dev.schaff.utility.helpers.goto
 import dev.schaff.utility.helpers.toast
+import dev.schaff.utility.stats.StatsSelectionActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -16,5 +17,7 @@ class MainActivity : AppCompatActivity() {
         binding.gotoDownload.setOnClickListener { goto(DownloadActivity::class.java) }
         binding.gotoNotes.setOnClickListener { goto(NotesActivity::class.java) }
         binding.gotoScan.setOnClickListener { goto(ScannerActivity::class.java) }
+        binding.gotoLoyalty.setOnClickListener { goto(LoyaltyActivity::class.java) }
+        binding.gotoStats.setOnClickListener { goto(StatsSelectionActivity::class.java) }
     }
 }

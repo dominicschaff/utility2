@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_main_barcode_scan"
+        android:shortcutDisabledMessage="@string/shortcut_disabled"
+        android:shortcutId="open_barcode"
+        android:shortcutLongLabel="@string/shortcut_scanner"
+        android:shortcutShortLabel="@string/shortcut_scanner">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="dev.schaff.utility.ScannerActivity"
+            android:targetPackage="dev.schaff.utility" />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_qr_code"
+        android:shortcutDisabledMessage="@string/shortcut_disabled"
+        android:shortcutId="open_loyalty"
+        android:shortcutLongLabel="@string/shortcut_loyalty"
+        android:shortcutShortLabel="@string/shortcut_loyalty">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="dev.schaff.utility.LoyaltyActivity"
+            android:targetPackage="dev.schaff.utility" />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_main_stats"
+        android:shortcutDisabledMessage="@string/shortcut_disabled"
+        android:shortcutId="open_stats"
+        android:shortcutLongLabel="@string/shortcut_stats"
+        android:shortcutShortLabel="@string/shortcut_stats">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="dev.schaff.utility.stats.StatsSelectionActivity"
+            android:targetPackage="dev.schaff.utility" />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+</shortcuts>

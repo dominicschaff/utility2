@@ -44,6 +44,18 @@
             android:text="Scanner"
             app:drawableTopCompat="@drawable/ic_main_barcode_scan" />
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/goto_loyalty"
+            style="@style/MainTitle"
+            android:text="Loyalty Cards"
+            app:drawableTopCompat="@drawable/ic_qr_code" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/goto_stats"
+            style="@style/MainTitle"
+            android:text="Stats"
+            app:drawableTopCompat="@drawable/ic_main_stats" />
+
     </GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
