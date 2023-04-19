@@ -38,10 +38,10 @@ class ElectricityActivity : AppCompatActivity() {
             finish()
         }
     }
-    fun setupDateTimeSelectors() {
+    private fun setupDateTimeSelectors() {
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
-        val month = c.get(Calendar.MONTH)
+        val month = c.get(Calendar.MONTH) + 1
         val day = c.get(Calendar.DAY_OF_MONTH)
         val hour = c.get(Calendar.HOUR_OF_DAY)
         val minute = c.get(Calendar.MINUTE)
@@ -52,7 +52,7 @@ class ElectricityActivity : AppCompatActivity() {
         binding.date.setOnClickListener {
             DatePickerDialog(this).apply {
                 setOnDateSetListener { _, year, month, dayOfMonth ->
-                    binding.date.text = "%04d-%02d-%02d".format(year, month, dayOfMonth)
+                    binding.date.text = "%04d-%02d-%02d".format(year, month + 1, dayOfMonth)
                     selectedtime = "${binding.date.text}T${binding.time.text}:00.0+02:00"
                 }
                 show()

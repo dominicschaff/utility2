@@ -2,8 +2,110 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="@style/OuterPadding"
     tools:context=".stats.FuelActivity">
 
+    <Button
+        android:id="@+id/date"
+        android:layout_width="0dp"
+        android:layout_height="96dp"
+        android:text="2023-01-01"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@id/time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="96dp"
+        android:layout_marginStart="12dp"
+        android:text="99:99"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/date"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        app:layout_constraintTop_toBottomOf="@id/notes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_add" />
+
+    <EditText
+        android:id="@+id/cost_per_litre"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:ems="10"
+        android:hint="R/l"
+        android:inputType="numberDecimal"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date" />
+
+    <EditText
+        android:id="@+id/amount_of_fuel"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:ems="10"
+        android:hint="Litres"
+        android:inputType="numberDecimal"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cost_per_litre" />
+
+    <EditText
+        android:id="@+id/total_cost"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:ems="10"
+        android:hint="Total Cost"
+        android:inputType="numberDecimal"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/amount_of_fuel" />
+
+    <EditText
+        android:id="@+id/odometer"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:ems="10"
+        android:hint="Odometer Reading"
+        android:inputType="numberDecimal"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/total_cost" />
+
+    <EditText
+        android:id="@+id/vehicle_usage"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:ems="10"
+        android:hint="l/100km (Vehicle Usage)"
+        android:inputType="numberDecimal"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/odometer" />
+
+    <EditText
+        android:id="@+id/notes"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:ems="10"
+        android:hint="Notes"
+        android:inputType="textAutoComplete|textCapSentences|textMultiLine"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vehicle_usage" />
 </androidx.constraintlayout.widget.ConstraintLayout>
