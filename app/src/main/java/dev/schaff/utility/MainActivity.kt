@@ -2,6 +2,7 @@ package dev.schaff.utility
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import dev.schaff.utility.dashboards.DashboardActivity
 import dev.schaff.utility.databinding.ActivityMainBinding
 import dev.schaff.utility.helpers.goto
 import dev.schaff.utility.helpers.toast
@@ -19,5 +20,6 @@ class MainActivity : AppCompatActivity() {
         binding.gotoScan.setOnClickListener { goto(ScannerActivity::class.java) }
         binding.gotoLoyalty.setOnClickListener { goto(LoyaltyActivity::class.java) }
         binding.gotoStats.setOnClickListener { goto(StatsSelectionActivity::class.java) }
+        binding.gotoDashboard.setOnClickListener { goto(DashboardActivity::class.java) }
     }
 }

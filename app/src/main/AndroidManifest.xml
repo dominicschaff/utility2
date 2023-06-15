@@ -17,25 +17,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Utility">
         <activity
-            android:name=".stats.GenericActivity"
-            android:label="Generic Stats"
+            android:name=".dashboards.DashboardActivity"
             android:exported="false" />
+        <activity
+            android:name=".stats.GenericActivity"
+            android:exported="false"
+            android:label="Generic Stats" />
         <activity
             android:name=".stats.FuelActivity"
-            android:label="Fuel Stats"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Fuel Stats" />
         <activity
             android:name=".stats.ElectricityActivity"
-            android:label="Electricity Stats"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Electricity Stats" />
         <activity
             android:name=".stats.ExpenseActivity"
-            android:label="Expense Stats"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Expense Stats" />
         <activity
             android:name=".stats.StatsSelectionActivity"
-            android:label="Stats Type Selection"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Stats Type Selection" />
         <activity
             android:name=".LoyaltyActivity"
             android:exported="false"

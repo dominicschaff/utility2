@@ -19,7 +19,6 @@ class DownloadActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_download)
         binding = ActivityDownloadBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
