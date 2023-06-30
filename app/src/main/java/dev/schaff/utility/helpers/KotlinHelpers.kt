@@ -210,8 +210,7 @@ fun StringBuilder.add(format: String, value: String?) {
 inline fun Context.externalFile(path: String) = File(homeDir(), path)
 inline fun Context.sdFile(path: String) = File(Environment.getExternalStorageDirectory(), path)
 
-inline fun Context.homeDir() = getExternalFilesDir(null)!!
-inline fun Context.logFile() = externalFile("log.json")
+inline fun Context.homeDir() = sdFile("dev.schaff.utility")
 inline fun Context.configFile() = try {
     externalFile("utility.json").asJsonObject()
 } catch (e: java.lang.Exception) {
