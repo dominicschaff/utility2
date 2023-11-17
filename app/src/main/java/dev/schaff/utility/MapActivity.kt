@@ -108,8 +108,10 @@ class MapActivity : AppCompatActivity(), LocationListener {
 
         val tileLayer = binding.mapView.map().setBaseMap(multiTileSource)
         binding.mapView.map().layers().add(BuildingLayer(binding.mapView.map(), tileLayer))
-        binding.mapView.map().layers().add(LabelLayer(binding.mapView.map(), tileLayer))
-        binding.mapView.map().setTheme(VtmThemes.OSMARENDER)
+        val ll = LabelLayer(binding.mapView.map(), tileLayer)
+        ll.removeZoomLimit()
+        binding.mapView.map().layers().add(ll)
+        binding.mapView.map().setTheme(VtmThemes.MOTORIDER)
         vectorLayer = VectorLayer(binding.mapView.map())
         binding.mapView.map().layers().add(vectorLayer)
 
@@ -117,12 +119,12 @@ class MapActivity : AppCompatActivity(), LocationListener {
         mapScaleBar = DefaultMapScaleBar(binding.mapView.map())
         val mapScaleBarLayer = MapScaleBarLayer(binding.mapView.map(), mapScaleBar)
         mapScaleBarLayer.renderer.setPosition(GLViewport.Position.BOTTOM_LEFT)
-        mapScaleBarLayer.renderer.setOffset(5 * CanvasAdapter.getScale(), 0f)
+        mapScaleBarLayer.renderer.setOffset(50 * CanvasAdapter.getScale(), 0f)
         binding.mapView.map().layers().add(mapScaleBarLayer)
 
         binding.fabTheme.setOnClickListener {
             binding.mapView.map()
-                .setTheme(if (daylight) VtmThemes.NEWTRON else VtmThemes.OSMARENDER)
+                .setTheme(if (daylight) VtmThemes.MOTORIDER_DARK else VtmThemes.MOTORIDER)
             daylight = !daylight
         }
 

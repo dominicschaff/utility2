@@ -19,7 +19,6 @@ import java.io.File
 import kotlin.experimental.and
 import android.os.Environment
 import com.google.gson.JsonObject
-import dev.schaff.utility.helpers.asJsonObject
 
 
 fun Context.alert(content: String, clickListener: DialogInterface.OnClickListener? = null) {
@@ -37,11 +36,11 @@ fun Context.alert(content: String, clickListener: DialogInterface.OnClickListene
 
 }
 
-fun Context.request(content: String, input_type:Int, f:(String)->Unit) {
+fun Context.request(content: String, inputType:Int, f:(String)->Unit) {
     val builder = AlertDialog.Builder(this)
     builder.setTitle(content)
     val input = EditText(this)
-    input.inputType = input_type
+    input.inputType = inputType
     builder.setView(input)
     builder.setPositiveButton(
         "OK"
