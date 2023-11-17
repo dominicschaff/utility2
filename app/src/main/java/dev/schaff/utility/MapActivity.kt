@@ -105,6 +105,7 @@ class MapActivity : AppCompatActivity(), LocationListener {
                 it.absolutePath.error()
             }
         }
+        multiTileSource.setPreferredLanguage("en")
 
         val tileLayer = binding.mapView.map().setBaseMap(multiTileSource)
         binding.mapView.map().layers().add(BuildingLayer(binding.mapView.map(), tileLayer))
