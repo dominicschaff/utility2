@@ -44,7 +44,7 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.core:core-ktx:1.13.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -56,12 +56,12 @@ dependencies {
     implementation 'com.nambimobile.widgets:expandable-fab:1.2.1'
     implementation 'com.koushikdutta.ion:ion:3.1.0'
 
-    ext.mapsforge_version = '0.20.0'
+    ext.mapsforge_version = '0.21.0'
 
     // Mapsforge VTM Core
     implementation "org.mapsforge:vtm:$mapsforge_version"
     implementation "org.mapsforge:vtm-themes:$mapsforge_version"
-    implementation 'org.slf4j:slf4j-api:2.0.12'
+    implementation 'org.slf4j:slf4j-api:2.0.13'
 
     // Mapsforge VTM Android
     implementation "org.mapsforge:vtm-android:$mapsforge_version"
