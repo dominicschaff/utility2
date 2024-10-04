@@ -61,7 +61,7 @@ dependencies {
     // Mapsforge VTM Core
     implementation "org.mapsforge:vtm:$mapsforge_version"
     implementation "org.mapsforge:vtm-themes:$mapsforge_version"
-    implementation 'org.slf4j:slf4j-api:2.0.13'
+    implementation 'org.slf4j:slf4j-api:2.0.16'
 
     // Mapsforge VTM Android
     implementation "org.mapsforge:vtm-android:$mapsforge_version"
