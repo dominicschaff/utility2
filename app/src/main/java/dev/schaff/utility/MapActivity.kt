@@ -37,7 +37,7 @@ import org.oscim.renderer.GLViewport
 import org.oscim.scalebar.DefaultMapScaleBar
 import org.oscim.scalebar.MapScaleBar
 import org.oscim.scalebar.MapScaleBarLayer
-import org.oscim.theme.VtmThemes
+import org.oscim.theme.internal.VtmThemes
 import org.oscim.tiling.source.mapfile.MapFileTileSource
 import org.oscim.tiling.source.mapfile.MultiMapFileTileSource
 import dev.schaff.utility.helpers.*
@@ -61,6 +61,7 @@ class MapActivity : AppCompatActivity(), LocationListener {
     private val locationsSaved = ArrayList<LocationPoint>()
 
     private var rotateFollow = false
+    private var locationUpdates = true
 
     private lateinit var lastLocation: Location
 
@@ -138,6 +139,15 @@ class MapActivity : AppCompatActivity(), LocationListener {
             binding.mapView.map().viewport().setTilt(0F)
             binding.mapView.map().viewport().setMapViewCenter(0f, 0f)
             centerOn(lastLocation.latitude, lastLocation.longitude)
+        }
+
+        binding.locationUpdates.setOnClickListener {
+            if (locationUpdates) {
+                locationManager.removeUpdates(this)
+            } else {
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0F, this)
+            }
+            locationUpdates = !locationUpdates
         }
 
         binding.share.setOnClickListener {
@@ -222,6 +232,7 @@ class MapActivity : AppCompatActivity(), LocationListener {
                         } else
                             toast("You clicked on ${p.latitude}, ${p.longitude} (${d.toInt()} m from you)")
                     }
+
                     is Gesture.LongPress -> consume {
                         val p = mMap.viewport().fromScreenPoint(e.x, e.y)
                         chooser(
@@ -249,9 +260,11 @@ class MapActivity : AppCompatActivity(), LocationListener {
                                             toast("There is no activity to share location to.")
                                         }
                                     }
+
                                     1 -> {
                                         toast("Distance to there is: ${lastLocation.distanceTo(p) / 1000} km")
                                     }
+
                                     2 -> {
                                         request(
                                             "Enter distance",
@@ -272,6 +285,7 @@ class MapActivity : AppCompatActivity(), LocationListener {
                                 }
                             })
                     }
+
                     else -> false
                 }
             }
@@ -311,11 +325,14 @@ class MapActivity : AppCompatActivity(), LocationListener {
     override fun onResume() {
         super.onResume()
         binding.mapView.onResume()
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0F, this)
+
+        if (locationUpdates)
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0F, this)
     }
 
     override fun onPause() {
-        locationManager.removeUpdates(this)
+        if (locationUpdates)
+            locationManager.removeUpdates(this)
         binding.mapView.onPause()
         super.onPause()
     }
@@ -382,5 +399,6 @@ class MapActivity : AppCompatActivity(), LocationListener {
     override fun onProviderEnabled(provider: String) {}
 
     @Deprecated("Deprecated in Java")
-    override fun onStatusChanged(provider: String, status: Int, extras: Bundle) {}
+    override fun onStatusChanged(provider: String, status: Int, extras: Bundle) {
+    }
 }

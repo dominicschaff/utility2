@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace 'dev.schaff.utility'
-    compileSdk 34
+    compileSdk 35
 
     buildFeatures {
         viewBinding true
@@ -14,7 +14,7 @@ android {
     defaultConfig {
         applicationId "dev.schaff.utility"
         minSdk 31
-        targetSdk 33
+        targetSdk 35
         versionCode 1
         versionName "1.0"
 
@@ -37,17 +37,17 @@ android {
     packagingOptions {
         resources {
             excludes += ['META-INF/DEPENDENCIES', 'META-INF/LICENSE', 'META-INF/LICENSE.txt', 'META-INF/license.txt', 'META-INF/LICENSE.md', 'META-INF/NOTICE', 'META-INF/NOTICE.txt', 'META-INF/NOTICE.md', 'META-INF/notice.txt', 'META-INF/ASL2.0', 'META-INF/*.kotlin_module']
+            excludes += ['META-INF/services/io.jeo.data.Driver', 'META-INF/LICENSE', 'META-INF/NOTICE']
         }
     }
-    buildToolsVersion '34.0.0'
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.core:core-ktx:1.15.0'
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'com.google.android.material:material:1.12.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
 
     implementation 'com.google.zxing:core:3.5.3'
     implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
@@ -56,21 +56,19 @@ dependencies {
     implementation 'com.nambimobile.widgets:expandable-fab:1.2.1'
     implementation 'com.koushikdutta.ion:ion:3.1.0'
 
-    ext.mapsforge_version = '0.21.0'
+    ext.mapsforge_version = '0.22.0'
 
     // Mapsforge VTM Core
-    implementation "org.mapsforge:vtm:$mapsforge_version"
-    implementation "org.mapsforge:vtm-themes:$mapsforge_version"
+    implementation "com.github.mapsforge.vtm:vtm:$mapsforge_version"
+    implementation "com.github.mapsforge.vtm:vtm-themes:$mapsforge_version"
     implementation 'org.slf4j:slf4j-api:2.0.16'
 
     // Mapsforge VTM Android
-    implementation "org.mapsforge:vtm-android:$mapsforge_version"
-    implementation "org.mapsforge:vtm-android:$mapsforge_version:natives-arm64-v8a"
-    implementation "org.mapsforge:vtm-android:$mapsforge_version:natives-armeabi-v7a"
+    implementation "com.github.mapsforge.vtm:vtm-jts:$mapsforge_version"
+    runtimeOnly "com.github.mapsforge.vtm:vtm-android:$mapsforge_version:natives-armeabi-v7a"
+    runtimeOnly "com.github.mapsforge.vtm:vtm-android:$mapsforge_version:natives-arm64-v8a"
+    runtimeOnly "com.github.mapsforge.vtm:vtm-android:$mapsforge_version:natives-x86"
+    runtimeOnly "com.github.mapsforge.vtm:vtm-android:$mapsforge_version:natives-x86_64"
+    implementation "com.github.mapsforge.vtm:vtm-android:$mapsforge_version"
     implementation 'com.caverock:androidsvg:1.4'
-
-
-    implementation("org.mapsforge:vtm-jts:$mapsforge_version") {
-        exclude group: 'com.vividsolutions', module: 'jts'
-    }
 }

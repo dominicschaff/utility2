@@ -37,13 +37,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_add" />
 
-    <EditText
-        android:id="@+id/description"
-        android:layout_width="0dp"
+    <AutoCompleteTextView
+        android:id="@+id/autocomplete_type"
+        android:layout_width="fill_parent"
         android:layout_height="72dp"
-        android:ems="10"
-        android:hint="Description"
-        android:inputType="textAutoComplete|textCapSentences|textMultiLine"
+        android:hint="Categories (Type for autocomplete)"
+        android:completionThreshold="0"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,14 +58,15 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description" />
+        app:layout_constraintTop_toBottomOf="@+id/autocomplete_type" />
 
-    <AutoCompleteTextView
-        android:id="@+id/autocomplete_country"
-        android:layout_width="fill_parent"
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="0dp"
         android:layout_height="72dp"
-        android:hint="Categories (Type for autocomplete)"
-        android:completionThreshold="0"
+        android:ems="10"
+        android:hint="Description"
+        android:inputType="textAutoComplete|textCapSentences|textMultiLine"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
