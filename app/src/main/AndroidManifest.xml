@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Utility">
         <activity
+            android:name=".stats.DeviceStatsActivity"
+            android:exported="false" />
+        <activity
             android:name=".dashboards.DashboardActivity"
             android:exported="false" />
         <activity

@@ -13,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId "dev.schaff.utility"
-        minSdk 31
+        minSdk 33
         targetSdk 35
         versionCode 1
         versionName "1.0"
@@ -40,6 +40,7 @@ android {
             excludes += ['META-INF/services/io.jeo.data.Driver', 'META-INF/LICENSE', 'META-INF/NOTICE']
         }
     }
+    buildToolsVersion '35.0.0'
 }
 
 dependencies {
@@ -55,6 +56,7 @@ dependencies {
 
     implementation 'com.nambimobile.widgets:expandable-fab:1.2.1'
     implementation 'com.koushikdutta.ion:ion:3.1.0'
+    implementation 'androidx.activity:activity:1.8.0'
 
     ext.mapsforge_version = '0.22.0'
 

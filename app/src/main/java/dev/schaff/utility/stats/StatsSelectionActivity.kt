@@ -16,5 +16,6 @@ class StatsSelectionActivity : AppCompatActivity() {
         binding.expense.setOnClickListener { goto(ExpenseActivity::class.java) }
         binding.fuel.setOnClickListener { goto(FuelActivity::class.java) }
         binding.generic.setOnClickListener { goto(GenericActivity::class.java) }
+        binding.device.setOnClickListener { goto(DeviceStatsActivity::class.java) }
     }
 }

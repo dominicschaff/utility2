@@ -45,4 +45,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/electricity" />
 
+    <Button
+        android:id="@+id/device"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:text="Device Stats"
+        android:textSize="42sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/generic" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
