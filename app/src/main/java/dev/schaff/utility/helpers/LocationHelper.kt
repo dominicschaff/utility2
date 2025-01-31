@@ -38,7 +38,14 @@ val markerColours = mapOf(
     R.drawable.ic_place_black to "black",
     R.drawable.ic_place_light_blue to "light_blue",
     R.drawable.ic_place_purple to "purple",
-    R.drawable.ic_place_cyan to "cyan"
+    R.drawable.ic_place_cyan to "cyan",
+    R.drawable.ic_place_home to "home",
+    R.drawable.ic_place_heart to "heart",
+    R.drawable.ic_place_store to "store",
+    R.drawable.ic_place_hotel to "hotel",
+    R.drawable.ic_place_drink to "drink",
+    R.drawable.ic_place_coffee to "coffee",
+    R.drawable.ic_place_office to "office"
 )
 
 inline fun JsonObject.toGeoPoint() = GeoPoint(d("latitude"), d("longitude"))

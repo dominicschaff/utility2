@@ -113,7 +113,7 @@ class MapActivity : AppCompatActivity(), LocationListener {
         val ll = LabelLayer(binding.mapView.map(), tileLayer)
         ll.removeZoomLimit()
         binding.mapView.map().layers().add(ll)
-        binding.mapView.map().setTheme(VtmThemes.MOTORIDER)
+        binding.mapView.map().setTheme(VtmThemes.OSMARENDER)
         vectorLayer = VectorLayer(binding.mapView.map())
         binding.mapView.map().layers().add(vectorLayer)
 
@@ -126,7 +126,7 @@ class MapActivity : AppCompatActivity(), LocationListener {
 
         binding.fabTheme.setOnClickListener {
             binding.mapView.map()
-                .setTheme(if (daylight) VtmThemes.MOTORIDER_DARK else VtmThemes.MOTORIDER)
+                .setTheme(if (daylight) VtmThemes.TRONRENDER else VtmThemes.OSMARENDER)
             daylight = !daylight
         }
 
