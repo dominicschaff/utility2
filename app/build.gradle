@@ -48,29 +48,46 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.15.0'
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'com.google.android.material:material:1.12.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
 
     implementation 'com.google.zxing:core:3.5.3'
     implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
-    implementation 'com.google.code.gson:gson:2.11.0'
+    implementation 'com.google.code.gson:gson:2.12.1'
 
     implementation 'com.nambimobile.widgets:expandable-fab:1.2.1'
     implementation 'com.koushikdutta.ion:ion:3.1.0'
-    implementation 'androidx.activity:activity-ktx:1.10.0'
+    implementation 'androidx.activity:activity-ktx:1.10.1'
 
-    ext.mapsforge_version = '0.22.0'
+    ext.mapsforge_version = '0.24.0'
+    ext.mapsforge_package = 'org.mapsforge'
 
     // Mapsforge VTM Core
-    implementation "com.github.mapsforge.vtm:vtm:$mapsforge_version"
-    implementation "com.github.mapsforge.vtm:vtm-themes:$mapsforge_version"
-    implementation 'org.slf4j:slf4j-api:2.0.16'
+    implementation "$mapsforge_package:vtm:$mapsforge_version"
+    implementation "$mapsforge_package:vtm-themes:$mapsforge_version"
+    implementation "$mapsforge_package:vtm-jts:$mapsforge_version"
 
     // Mapsforge VTM Android
-    implementation "com.github.mapsforge.vtm:vtm-jts:$mapsforge_version"
-    runtimeOnly "com.github.mapsforge.vtm:vtm-android:$mapsforge_version:natives-armeabi-v7a"
-    runtimeOnly "com.github.mapsforge.vtm:vtm-android:$mapsforge_version:natives-arm64-v8a"
-    runtimeOnly "com.github.mapsforge.vtm:vtm-android:$mapsforge_version:natives-x86"
-    runtimeOnly "com.github.mapsforge.vtm:vtm-android:$mapsforge_version:natives-x86_64"
-    implementation "com.github.mapsforge.vtm:vtm-android:$mapsforge_version"
-    implementation 'com.caverock:androidsvg:1.4'
+    implementation "$mapsforge_package:vtm-android:$mapsforge_version"
+    implementation "$mapsforge_package:vtm-android-mvt:$mapsforge_version"
+    runtimeOnly "$mapsforge_package:vtm-android:$mapsforge_version:natives-armeabi-v7a"
+    runtimeOnly "$mapsforge_package:vtm-android:$mapsforge_version:natives-arm64-v8a"
+    runtimeOnly "$mapsforge_package:vtm-android:$mapsforge_version:natives-x86"
+    runtimeOnly "$mapsforge_package:vtm-android:$mapsforge_version:natives-x86_64"
+    implementation "com.caverock:androidsvg:1.4"
+
+    // Mapsforge hillshading
+//    implementation "$mapsforge_package:vtm-hillshading:$mapsforge_version"
+//    implementation "$mapsforge_package:mapsforge-core:$mapsforge_version"
+//    implementation "$mapsforge_package:mapsforge-map:$mapsforge_version"
+//    implementation "$mapsforge_package:mapsforge-map-android:$mapsforge_version"
+
+    // Mapsforge GeoJSON
+    implementation "$mapsforge_package:vtm-json:$mapsforge_version"
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.9.9'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.9.9'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.9'
+
+    // Mapsforge jeo indoor maps
+//    implementation "$mapsforge_package:vtm-jeo:$mapsforge_version"
+//    implementation 'com.github.jeo.jeo:jeo-carto:master-SNAPSHOT'
 }

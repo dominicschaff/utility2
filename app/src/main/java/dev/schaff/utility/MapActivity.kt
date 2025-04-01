@@ -15,6 +15,9 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updateLayoutParams
+import dev.schaff.utility.databinding.ActivityMapBinding
+import dev.schaff.utility.helpers.*
+import dev.schaff.utility.views.chooser
 import org.oscim.android.canvas.AndroidGraphics
 import org.oscim.backend.CanvasAdapter
 import org.oscim.core.GeoPoint
@@ -40,11 +43,14 @@ import org.oscim.scalebar.MapScaleBarLayer
 import org.oscim.theme.internal.VtmThemes
 import org.oscim.tiling.source.mapfile.MapFileTileSource
 import org.oscim.tiling.source.mapfile.MultiMapFileTileSource
-import dev.schaff.utility.helpers.*
-import dev.schaff.utility.views.chooser
-import dev.schaff.utility.databinding.ActivityMapBinding
 import java.io.File
 import java.util.*
+//import org.mapsforge.map.layer.hills.DemFolder
+//import org.mapsforge.map.android.hills.DemFolderAndroidContent
+//import org.mapsforge.map.layer.hills.AdaptiveClasyHillShading
+//import org.oscim.tiling.source.hills.HillshadingTileSource
+//import android.graphics.Color
+//import org.mapsforge.map.android.graphics.AndroidGraphicFactory
 
 
 @SuppressLint("MissingPermission")
@@ -104,6 +110,28 @@ class MapActivity : AppCompatActivity(), LocationListener {
                 tileSource.setMapFile(it.absolutePath)
                 multiTileSource.add(tileSource)
                 it.absolutePath.error()
+//            } else if (it.isDirectory && it.name == "hillshading") {
+//                val demFolder: DemFolder = DemFolderAndroidContent(uri, this, contentResolver)
+//                val algorithm: AdaptiveClasyHillShading =
+//                    AdaptiveClasyHillShading() // You can make additional behavior adjustments
+//                        .setAdaptiveZoomEnabled(true) // .setZoomMinOverride(0)
+//                        // .setZoomMaxOverride(17)
+//                        .setCustomQualityScale(1)
+//                val hillshadingTileSource: HillshadingTileSource = HillshadingTileSource(
+//                    Viewport.MIN_ZOOM_LEVEL,
+//                    Viewport.MAX_ZOOM_LEVEL,
+//                    demFolder,
+//                    algorithm,
+//                    128,
+//                    Color.BLACK,
+//                    AndroidGraphicFactory.INSTANCE
+//                )
+////                if (USE_CACHE) {
+////                    val tileCache: ITileCache =
+////                        TileCache(this, externalCacheDir!!.absolutePath, "hillshading")
+////                    hillshadingTileSource.setCache(tileCache)
+////                }
+//                binding.mapView.map().add(BitmapTileLayer(mMap, hillshadingTileSource, 150))
             }
         }
         multiTileSource.setPreferredLanguage("en")
