@@ -13,7 +13,13 @@ android {
 
     defaultConfig {
         applicationId "dev.schaff.utility"
-        minSdk 33
+        /*
+        Android 16: API Level 36
+        Android 15: API Level 35
+        Android 14: API Level 34
+         */
+        minSdk 35
+        //noinspection OldTargetApi
         targetSdk 35
         versionCode 1
         versionName "1.0"
@@ -45,20 +51,20 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.15.0'
-    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.core:core-ktx:1.16.0'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
     implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
 
     implementation 'com.google.zxing:core:3.5.3'
     implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
-    implementation 'com.google.code.gson:gson:2.12.1'
+    implementation 'com.google.code.gson:gson:2.13.1'
 
     implementation 'com.nambimobile.widgets:expandable-fab:1.2.1'
     implementation 'com.koushikdutta.ion:ion:3.1.0'
     implementation 'androidx.activity:activity-ktx:1.10.1'
 
-    ext.mapsforge_version = '0.24.0'
+    ext.mapsforge_version = '0.25.0'
     ext.mapsforge_package = 'org.mapsforge'
 
     // Mapsforge VTM Core
@@ -76,16 +82,16 @@ dependencies {
     implementation "com.caverock:androidsvg:1.4"
 
     // Mapsforge hillshading
-//    implementation "$mapsforge_package:vtm-hillshading:$mapsforge_version"
-//    implementation "$mapsforge_package:mapsforge-core:$mapsforge_version"
-//    implementation "$mapsforge_package:mapsforge-map:$mapsforge_version"
-//    implementation "$mapsforge_package:mapsforge-map-android:$mapsforge_version"
+    implementation "$mapsforge_package:vtm-hillshading:$mapsforge_version"
+    implementation "$mapsforge_package:mapsforge-core:$mapsforge_version"
+    implementation "$mapsforge_package:mapsforge-map:$mapsforge_version"
+    implementation "$mapsforge_package:mapsforge-map-android:$mapsforge_version"
 
     // Mapsforge GeoJSON
-    implementation "$mapsforge_package:vtm-json:$mapsforge_version"
-    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.9.9'
-    implementation 'com.fasterxml.jackson.core:jackson-core:2.9.9'
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.9'
+//    implementation "$mapsforge_package:vtm-json:$mapsforge_version"
+//    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.19.2'
+//    implementation 'com.fasterxml.jackson.core:jackson-core:2.19.2'
+//    implementation 'com.fasterxml.jackson.core:jackson-databind:2.19.2'
 
     // Mapsforge jeo indoor maps
 //    implementation "$mapsforge_package:vtm-jeo:$mapsforge_version"

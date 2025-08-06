@@ -18,6 +18,12 @@ import androidx.core.view.updateLayoutParams
 import dev.schaff.utility.databinding.ActivityMapBinding
 import dev.schaff.utility.helpers.*
 import dev.schaff.utility.views.chooser
+import org.mapsforge.core.graphics.Color
+import org.mapsforge.core.graphics.Style
+import org.mapsforge.core.model.LatLong
+import org.mapsforge.core.util.Utils
+import org.mapsforge.map.android.graphics.AndroidGraphicFactory
+import org.mapsforge.map.layer.overlay.Polyline
 import org.oscim.android.canvas.AndroidGraphics
 import org.oscim.backend.CanvasAdapter
 import org.oscim.core.GeoPoint
@@ -36,10 +42,12 @@ import org.oscim.layers.tile.vector.labeling.LabelLayer
 import org.oscim.layers.vector.VectorLayer
 import org.oscim.layers.vector.geometries.CircleDrawable
 import org.oscim.map.Viewport
+import org.oscim.renderer.BitmapRenderer
 import org.oscim.renderer.GLViewport
 import org.oscim.scalebar.DefaultMapScaleBar
 import org.oscim.scalebar.MapScaleBar
 import org.oscim.scalebar.MapScaleBarLayer
+import org.oscim.scalebar.MetricUnitAdapter
 import org.oscim.theme.internal.VtmThemes
 import org.oscim.tiling.source.mapfile.MapFileTileSource
 import org.oscim.tiling.source.mapfile.MultiMapFileTileSource
@@ -146,10 +154,15 @@ class MapActivity : AppCompatActivity(), LocationListener {
         binding.mapView.map().layers().add(vectorLayer)
 
         // Scale bar
-        mapScaleBar = DefaultMapScaleBar(binding.mapView.map())
-        val mapScaleBarLayer = MapScaleBarLayer(binding.mapView.map(), mapScaleBar)
-        mapScaleBarLayer.renderer.setPosition(GLViewport.Position.BOTTOM_LEFT)
-        mapScaleBarLayer.renderer.setOffset(50 * CanvasAdapter.getScale(), 0f)
+        val mapScaleBar: DefaultMapScaleBar = DefaultMapScaleBar(binding.mapView.map())
+        mapScaleBar.setScaleBarMode(DefaultMapScaleBar.ScaleBarMode.BOTH)
+        mapScaleBar.setDistanceUnitAdapter(MetricUnitAdapter.INSTANCE)
+        mapScaleBar.scaleBarPosition = MapScaleBar.ScaleBarPosition.BOTTOM_LEFT
+
+        val mapScaleBarLayer: MapScaleBarLayer = MapScaleBarLayer(binding.mapView.map(), mapScaleBar)
+        val renderer: BitmapRenderer = mapScaleBarLayer.renderer
+        renderer.setPosition(GLViewport.Position.BOTTOM_LEFT)
+        renderer.setOffset(5 * CanvasAdapter.getScale(), 0f)
         binding.mapView.map().layers().add(mapScaleBarLayer)
 
         binding.fabTheme.setOnClickListener {
@@ -346,6 +359,9 @@ class MapActivity : AppCompatActivity(), LocationListener {
             ).apply {
                 binding.mapView.map().layers().add(this)
             }
+        }
+
+        configFile().a("layers").mapObject {
         }
     }
 
