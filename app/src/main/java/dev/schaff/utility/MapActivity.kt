@@ -18,12 +18,6 @@ import androidx.core.view.updateLayoutParams
 import dev.schaff.utility.databinding.ActivityMapBinding
 import dev.schaff.utility.helpers.*
 import dev.schaff.utility.views.chooser
-import org.mapsforge.core.graphics.Color
-import org.mapsforge.core.graphics.Style
-import org.mapsforge.core.model.LatLong
-import org.mapsforge.core.util.Utils
-import org.mapsforge.map.android.graphics.AndroidGraphicFactory
-import org.mapsforge.map.layer.overlay.Polyline
 import org.oscim.android.canvas.AndroidGraphics
 import org.oscim.backend.CanvasAdapter
 import org.oscim.core.GeoPoint
@@ -53,12 +47,14 @@ import org.oscim.tiling.source.mapfile.MapFileTileSource
 import org.oscim.tiling.source.mapfile.MultiMapFileTileSource
 import java.io.File
 import java.util.*
-//import org.mapsforge.map.layer.hills.DemFolder
-//import org.mapsforge.map.android.hills.DemFolderAndroidContent
-//import org.mapsforge.map.layer.hills.AdaptiveClasyHillShading
-//import org.oscim.tiling.source.hills.HillshadingTileSource
-//import android.graphics.Color
-//import org.mapsforge.map.android.graphics.AndroidGraphicFactory
+import org.mapsforge.map.layer.hills.DemFolder
+import org.mapsforge.map.android.hills.DemFolderAndroidContent
+import org.mapsforge.map.layer.hills.AdaptiveClasyHillShading
+import org.oscim.tiling.source.hills.HillshadingTileSource
+import android.graphics.Color
+import androidx.core.net.toUri
+import org.mapsforge.map.android.graphics.AndroidGraphicFactory
+import org.oscim.layers.tile.bitmap.BitmapTileLayer
 
 
 @SuppressLint("MissingPermission")
@@ -66,7 +62,7 @@ class MapActivity : AppCompatActivity(), LocationListener {
 
     private lateinit var binding: ActivityMapBinding
 
-    private lateinit var mapScaleBar: MapScaleBar
+    private lateinit var mapScaleBar: DefaultMapScaleBar
     private lateinit var locationLayer: LocationLayer
     private lateinit var vectorLayer: VectorLayer
     private lateinit var locationManager: LocationManager
@@ -118,13 +114,14 @@ class MapActivity : AppCompatActivity(), LocationListener {
                 tileSource.setMapFile(it.absolutePath)
                 multiTileSource.add(tileSource)
                 it.absolutePath.error()
-//            } else if (it.isDirectory && it.name == "hillshading") {
-//                val demFolder: DemFolder = DemFolderAndroidContent(uri, this, contentResolver)
+            }
+//            else if (it.isDirectory && it.name == "hillshading") {
+//                val demFolder: DemFolder = DemFolderAndroidContent(it.toUri(), this, contentResolver)
 //                val algorithm: AdaptiveClasyHillShading =
 //                    AdaptiveClasyHillShading() // You can make additional behavior adjustments
 //                        .setAdaptiveZoomEnabled(true) // .setZoomMinOverride(0)
 //                        // .setZoomMaxOverride(17)
-//                        .setCustomQualityScale(1)
+//                        .setCustomQualityScale(1.0)
 //                val hillshadingTileSource: HillshadingTileSource = HillshadingTileSource(
 //                    Viewport.MIN_ZOOM_LEVEL,
 //                    Viewport.MAX_ZOOM_LEVEL,
@@ -139,8 +136,8 @@ class MapActivity : AppCompatActivity(), LocationListener {
 ////                        TileCache(this, externalCacheDir!!.absolutePath, "hillshading")
 ////                    hillshadingTileSource.setCache(tileCache)
 ////                }
-//                binding.mapView.map().add(BitmapTileLayer(mMap, hillshadingTileSource, 150))
-            }
+//                binding.mapView.map().layers().add(BitmapTileLayer(binding.mapView.map(), hillshadingTileSource, 150))
+//            }
         }
         multiTileSource.setPreferredLanguage("en")
 
@@ -154,8 +151,8 @@ class MapActivity : AppCompatActivity(), LocationListener {
         binding.mapView.map().layers().add(vectorLayer)
 
         // Scale bar
-        val mapScaleBar: DefaultMapScaleBar = DefaultMapScaleBar(binding.mapView.map())
-        mapScaleBar.setScaleBarMode(DefaultMapScaleBar.ScaleBarMode.BOTH)
+        mapScaleBar = DefaultMapScaleBar(binding.mapView.map())
+        mapScaleBar.scaleBarMode = DefaultMapScaleBar.ScaleBarMode.BOTH
         mapScaleBar.setDistanceUnitAdapter(MetricUnitAdapter.INSTANCE)
         mapScaleBar.scaleBarPosition = MapScaleBar.ScaleBarPosition.BOTTOM_LEFT
 
